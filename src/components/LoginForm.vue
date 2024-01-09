@@ -16,6 +16,8 @@ const [email, emailAttrs] = defineField('email');
 
 const [password, passwordAttrs] = defineField('password');
 
+const [name, nameAttrs] = defineField('password');
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const onSubmit = handleSubmit(async _ => {
   await fetch('https://jsonplaceholder.typicode.com/todos/1')
@@ -37,6 +39,11 @@ const onSubmit = handleSubmit(async _ => {
     <div class="flex flex-col gap-y-2">
         <input v-model="password" v-bind="passwordAttrs" type="password" placeholder="Heslo" data-cy="login-form-password-field" class="ring-1 ring-slate-200 p-2" />
         <span class="text-red-500" data-cy="login-form-password-error-message">{{ errors.password }}</span>
+    </div>
+
+    <div class="flex flex-col gap-y-2">
+        <input v-model="name" v-bind="nameAttrs" type="text" placeholder="Jméno" data-cy="login-form-name-field" class="ring-1 ring-slate-200 p-2" />
+        <span class="text-red-500" data-cy="login-form-name-error-message">{{ errors.name }}</span>
     </div>
 
     <button type="submit" data-cy="login-form-submit-button" class="bg-blue-500 text-white p-2">Přihlásit se</button>
